@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%}
+    <title>Home</title>
+{%endblock%}
+{%block content%}
+    <p>Hello World</p>
+    <h5>Table</h5>
+    <table class="table table-borderd table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for user in users%}
+                <tr>
+                    <td>{{user}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a href="{%url 'shuffle:shuffle'%}" class="btn btn-outline-success">Create New Round</a>
+    <br>
+    <a href="{%url 'shuffle:previous'%}" class="btn btn-outline-success">Previous Rounds</a>
+    <!-- <button href class="btn btn-outline-success">Create New Round</button> -->
+{%endblock%}

@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block content%}
+    <table class="table table-borderd table-hover">
+        <thead>
+            <tr>
+                <th>Group</th>
+                <th>Members</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for chunk in chunks%}
+                <tr>
+                    <td>1</td>
+                    {%for member in chunk%}
+                        <td>{{member}}</td>
+                    {%endfor%}    
+                </tr>
+            {%endfor%}    
+        </tbody>
+    </table>
+    <!-- <a href="{%url 'shuffle:shuffle'%}" class="btn btn-outline-success">Re-Shuffle</a> -->
+    <hr>
+    <h4>Save the current shuffled round?</h4>
+    <form method="post" id="test">
+        {%csrf_token%}
+        <button type="submit" name="test" value="sub" form="test" class="btn btn-outline-success">
+            shuffle
+        </button>
+        <br>
+        {{form}}
+        <button type="submit" name="system" value="sub" form="test" class="btn btn-outline-success">
+            Save
+        </button>
+        
+    </form>
+{%endblock%}
