@@ -4,16 +4,18 @@
     <table class="table table-borderd table-hover">
         <thead>
             <tr>
+                <th>Round Number</th>
                 <th>Round Names</th>
             </tr>
         </thead>
         <tbody>
             {%for round in allRounds%}
                 <tr>
-                    <td><a href="#">{{round.name}}</a></td>  
+                    <td>{{forloop.counter}}</td>
+                    <td><a href="{%url 'shuffle:round' round.id %}">{{round.name}}</a></td>  
                 </tr>
             {%endfor%}    
         </tbody>
     </table>
-    
+
 {%endblock%}

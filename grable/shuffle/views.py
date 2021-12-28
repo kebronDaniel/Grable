@@ -27,11 +27,12 @@ def shuffler(request):
     form = RoundForm()
     if request.method == "POST":
         random.shuffle(members)
-        print("First one")
-        print(members)
+        allMembers = ",".join(members)
         name = request.POST["name"]
-        print("Second one")
-        print(members)
+        round = Round(name=name, members=allMembers)
+        round.save()
+        return redirect("/allRounds")
+
     return render(
         request, "shuffle/shuffler.html", context={"chunks": chunks, "form": form}
     )
@@ -42,6 +43,11 @@ def allRounds(request):
     return render(request, "shuffle/allRounds.html", context={"allRounds": allRounds})
 
 
-def test(request):
-    print("All")
-    return redirect("/")
+def roundDetail(request, round_id):
+    round = Round.objects.get(id=round_id)
+    allMembers = round.members
+    members = allMembers.split(",")
+    chunks = [members[x : x + 3] for x in range(0, len(members), 3)]
+    return render(
+        request, "shuffle/round.html", context={"round": round, "chunks": chunks}
+    )

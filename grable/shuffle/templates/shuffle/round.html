@@ -1,14 +1,18 @@
 {%extends 'base.html'%}
 {%block content%}
     <table class="table table-borderd table-hover">
+
+        <h3>Group Name : <i>{{round.name}}</i></h3>
         <thead>
             <tr>
+                <th>Group Number</th>
                 <th>Members</th>
             </tr>
         </thead>
         <tbody>
             {%for chunk in chunks%}
                 <tr>
+                    <td>{{forloop.counter}}</td>
                     {%for member in chunk%}
                         <td>{{member}}</td>
                     {%endfor%}    
@@ -16,13 +20,7 @@
             {%endfor%}    
         </tbody>
     </table>
-    <hr>
-    <h4>Do you want to Shuffle and save a new round?</h4>
-    <form method="post" id="test">
-        {%csrf_token%}
-        {{form}}
-        <button type="submit" name="save" class="btn btn-outline-success">
-            Shuffle and Save
-        </button>
-    </form>
+
+    <a href="{%url 'shuffle:allRounds' %}" class="btn btn-outline-success">Back</a>
+
 {%endblock%}
