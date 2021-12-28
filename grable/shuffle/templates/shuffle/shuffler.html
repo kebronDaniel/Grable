@@ -21,14 +21,10 @@
     <!-- <a href="{%url 'shuffle:shuffle'%}" class="btn btn-outline-success">Re-Shuffle</a> -->
     <hr>
     <h4>Save the current shuffled round?</h4>
-    <form action="" method="post">
-        {%csrf_token%}
-        <button type="submit" name="shuffle">Shuffle</button>
-    </form>
     <form method="post" id="test">
         {%csrf_token%}
         {{form}}
-        <button type="submit" class="btn btn-outline-success">
+        <button type="submit" name="save" class="btn btn-outline-success">
             Save
         </button>
     </form>
