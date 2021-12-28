@@ -13,13 +13,13 @@ import random
 
 def index(request):
     users = User.objects.all()
-    num = 0
-    return render(request, "shuffle/index.html", context={"users": users, "num": num})
+    return render(request, "shuffle/index.html", context={"users": users})
 
 
 def shuffler(request):
     users = User.objects.all()
     members = []
+    # Later get all active users with thier full name
     for user in users:
         members.append(user.username)
 

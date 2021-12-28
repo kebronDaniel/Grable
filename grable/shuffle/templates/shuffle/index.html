@@ -3,22 +3,38 @@
     <title>Home</title>
 {%endblock%}
 {%block content%}
-    <p>Hello World</p>
-    <h5>Table</h5>
-    <table class="table table-borderd table-hover">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for user in users%}
-                <tr>
-                    <td>{{user}}</td>
-                </tr>
-            {%endfor%}
-        </tbody>
-    </table>
-    <a href="{%url 'shuffle:shuffle'%}" class="btn btn-outline-success">Create New Round</a>
-    <!-- <button href class="btn btn-outline-success">Create New Round</button> -->
+
+    <hr>
+
+    <div class="card text-center">
+    
+        <div class="card-body">
+        <h5 class="card-title">New Round</h5>
+        <p class="card-text">Create a new round from all registered users.</p>
+        <a href="{%url 'shuffle:shuffle'%}" class="btn btn-outline-success">Create New Round</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card text-center">
+        <div class="card-body">
+        <h5 class="card-title">All Rounds</h5>
+        <p class="card-text">Visit all the Rounds and the respected groups inside each of them.</p>
+        <a href="{%url 'shuffle:allRounds'%}" class="btn btn-outline-success">Checkout All Rounds</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="card text-center">
+        <div class="card-body">
+        <h5 class="card-title">Visit Admin Site</h5>
+        <p class="card-text">Control all the status of the program from a central console.</p>
+        <a href="/admin" class="btn btn-outline-success">LOGIN</a>
+        </div>
+    </div>
+
+    <hr>
+
 {%endblock%}
