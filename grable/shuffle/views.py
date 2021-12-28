@@ -37,9 +37,9 @@ def shuffler(request):
     )
 
 
-def previousRounds(request):
-    # use get object or 404 for all
-    return render(request, "shuffle/previousRounds.html")
+def allRounds(request):
+    allRounds = Round.objects.all()
+    return render(request, "shuffle/allRounds.html", context={"allRounds": allRounds})
 
 
 def test(request):

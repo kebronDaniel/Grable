@@ -6,6 +6,6 @@ app_name = "shuffle"
 urlpatterns = [
     path("", views.index, name="index"),
     path("shuffle/", views.shuffler, name="shuffle"),
-    path("previousRounds/", views.previousRounds, name="previous"),
     path("test/", views.test, name="test"),
+    path("allRounds/", views.allRounds, name="allRounds"),
 ]
