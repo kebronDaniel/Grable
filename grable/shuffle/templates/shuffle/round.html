@@ -2,11 +2,14 @@
 {%block content%}
     <table class="table table-borderd table-hover">
 
-        <h3>Group Name : <i>{{round.name}}</i></h3>
+        <h3>Route Name : <i>{{round.name}}</i></h3>
         <thead>
             <tr>
-                <th>Group Number</th>
-                <th>Members</th>
+                <th>Team</th>
+                <th>Member</th>
+                <th></th>
+                <th></th>
+                <th>Location</th>
             </tr>
         </thead>
         <tbody>
@@ -15,12 +18,13 @@
                     <td>{{forloop.counter}}</td>
                     {%for member in chunk%}
                         <td>{{member}}</td>
-                    {%endfor%}    
-                </tr>
+                    {%endfor%}
+                </tr>  
             {%endfor%}    
         </tbody>
     </table>
 
+    <a href="{%url 'shuffle:deleteRound' round.id %}" class="btn btn-outline-danger">Delete This Round</a>
     <a href="{%url 'shuffle:allRounds' %}" class="btn btn-outline-success">Back</a>
 
 {%endblock%}

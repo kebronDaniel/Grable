@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%block content%}
+
+    <table class="table table-borderd table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>First Degree</th>
+                <th>Second Degree</th>
+                <th>Previous Occupation</th>
+                <th>Recruitment Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for member in staffMembers%}
+                <tr>
+                    <td>{{member.user.username}}</td>
+                    <td>{{member.firstDegree}}</td>
+                    <td>{{member.secondDegree}}</td>
+                    <td>{{member.perviousOccupation}}</td>
+                    <td>{{member.recruitmentYear}}</td>
+                </tr>
+            {%endfor%}    
+        </tbody>
+    </table>
+
+    <a href="{%url 'shuffle:index' %}" class="btn btn-outline-success">Back</a>
+
+{%endblock%}

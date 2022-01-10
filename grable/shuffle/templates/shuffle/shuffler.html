@@ -18,6 +18,25 @@
             {%endfor%}    
         </tbody>
     </table>
+
+    <h5><i>This are all the locations ready to be assigned to a new group.</i></h5>
+    <table class="table table-borderd table-hover">
+        <thead>
+            <tr>
+                <th>Locations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for locationChunk in locationChunks%}
+                <tr>
+                    {%for member in locationChunk%}
+                        <td>{{member}}</td>
+                    {%endfor%}    
+                </tr>
+            {%endfor%}    
+        </tbody>
+    </table>
+
     <hr>
     <h4>Do you want to Shuffle and save a new round?</h4>
     <form method="post" id="test">

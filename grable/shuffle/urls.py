@@ -8,4 +8,6 @@ urlpatterns = [
     path("shuffle/", views.shuffler, name="shuffle"),
     path("allRounds/", views.allRounds, name="allRounds"),
     path("round/<round_id>", views.roundDetail, name="round"),
+    path("showStaff/", views.showAllStaff, name="allStaff"),
+    path("deleteRound/<round_id>", views.deleteRound, name="deleteRound"),
 ]
