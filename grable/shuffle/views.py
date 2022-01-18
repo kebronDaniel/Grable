@@ -17,8 +17,8 @@ def index(request):
 
 
 def shuffler(request):
-    users = StaffProfile.objects.all()
-    locations = Location.objects.all()
+    users = StaffProfile.objects.filter(isAvailable=True)
+    locations = Location.objects.filter(isAvailable=True)
     members = []
     locationList = []
     # Later get all active users with thier full name
