@@ -88,6 +88,33 @@ def deleteRound(request, round_id):
     return redirect("/allRounds")
 
 
+def printView(request, round_id):
+    round = Round.objects.get(id=round_id)
+    allMembers = round.members
+    locations = round.location
+    members = allMembers.split(",")
+    allLocations = locations.split(",")
+    j = 0
+    # Number of Locations
+    i = 3
+    # Number of Members assigned per location
+    while i < len(members):
+        members.insert(i, allLocations[j])
+        i += 4
+        j += 1
+
+    chunks = [members[x : x + 4] for x in range(0, len(members), 4)]
+    return render(
+        request,
+        "shuffle/roundPrintView.html",
+        context={
+            "round": round,
+            "chunks": chunks,
+            "allLocations": allLocations,
+        },
+    )
+
+
 def showAllStaff(request):
     staffMembers = StaffProfile.objects.all()
     return render(
