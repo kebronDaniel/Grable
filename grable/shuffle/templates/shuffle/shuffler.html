@@ -1,6 +1,15 @@
 {%extends 'base.html'%}
 {%block content%}
-
+    <br>
+    <h5><i>Name your new round.</i></h5>
+    <form method="post" id="test">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit" name="save" class="btn btn-outline-success">
+            Shuffle and Save
+        </button>
+    </form>
+    <br>
     <h5><i>This are all the registered users ready to be assigned to a new group.</i></h5>
     <table class="table table-borderd table-hover">
         <thead>
@@ -36,14 +45,5 @@
             {%endfor%}    
         </tbody>
     </table>
-
-    <hr>
-    <h4>Do you want to Shuffle and save a new round?</h4>
-    <form method="post" id="test">
-        {%csrf_token%}
-        {{form}}
-        <button type="submit" name="save" class="btn btn-outline-success">
-            Shuffle and Save
-        </button>
-    </form>
+    
 {%endblock%}
