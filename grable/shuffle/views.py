@@ -21,7 +21,7 @@ def shuffler(request):
     locations = Location.objects.filter(isAvailable=True)
     members = []
     locationList = []
-    # Later get all active users with thier full name
+
     for user in users:
         members.append(user.user.username)
 
@@ -64,7 +64,7 @@ def roundDetail(request, round_id):
     # Number of Locations
     i = 3
     # Number of Members assigned per location
-    while i < len(members):
+    while i <= len(members):
         members.insert(i, allLocations[j])
         i += 4
         j += 1
